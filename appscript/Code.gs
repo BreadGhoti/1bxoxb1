@@ -1,16 +1,15 @@
-const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1_gS0ytFOucc8YRPYsGvCOJzgx8J2SmNIA5Mz8KV03pM/edit#gid=0";
+const SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/17AWjGkjuUGLqti5jCJccw-govSf7IaC7qUaBezJBnWM/edit?gid=0#gid=0";
 const spreadsheet = SpreadsheetApp.openByUrl(SPREADSHEET_URL);
 const worksheet = spreadsheet.getSheetByName("Sheet1");
 
 function doGet() {
-  // https://developers.google.com/apps-script/guides/html/templates
-  let template = HtmlService.createTemplateFromFile('Index')
-  let html = template.evaluate()
-    .setTitle('1bxoxb1');
-  let htmlOutput = HtmlService.createHtmlOutput(html);
-  htmlOutput.addMetaTag('viewport', 'width=device-width, initial-scale=1');
-  return htmlOutput;
-}
+   let template = HtmlService.createTemplateFromFile('Index.html');
+   let html = template.evaluate()
+   .setTitle('CHAT')
+   .setSandboxMode(HtmlService.SandboxMode.IFRAME)
+   .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+   return html;
+ }
 
 // To enable iframe use : 
 // function doGet() {
