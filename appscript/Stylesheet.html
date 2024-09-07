@@ -23,6 +23,7 @@
     }
 
     #message-container {
+        border-radius: 15px;
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -94,6 +95,7 @@
     }
 
     #input-container {
+        border-radius: 15px;
         white-space: pre-wrap;
         overflow-wrap: break-word;
         font-size: 20px;
@@ -126,6 +128,29 @@
 
     @media screen and (max-width:520px) {
         #sendbtn {
+            font-size: 25px;
+            height: 100%;
+            width: 100%;
+            max-width: 50px;
+            max-height: 50px;
+        }
+    }
+
+    #emoji {
+        font-size: 30px;
+        height: 50px;
+        font-weight: 100;
+        width: 50px;
+        outline: 1px solid;
+        border-radius: 50%;
+    }
+
+    #emoji:hover {
+        outline-color: tomato;
+    }
+
+    @media screen and (max-width:520px) {
+        #emoji {
             font-size: 25px;
             height: 100%;
             width: 100%;
