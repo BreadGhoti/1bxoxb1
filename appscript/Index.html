@@ -3,29 +3,41 @@
 
 <head>
   <base target="_top">
-  <?!= include('Stylesheet'); ?>
+<?!= include('Stylesheet.html'); ?>
 </head>
-
 <body>
   <h1>
-    <span style="color:#FF0000">1</span>
-    <span style="color:#66CC66">b</span>
-    <span style="color:#FF9966">x</span>
-    <span style="color:#d66fff">o</span>
-    <span style="color:#FF9966">x</span>
-    <span style="color:#66CC66">b</span>
-    <span style="color:#FF0000">1</span>
+    <span style="color:#FF0000">c</span>
+    <span style="color:#66CC66">h</span>
+    <span style="color:#FF9966">a</span>
+    <span style="color:#d66fff">t</span>
+    <span style="color:#FF9966">!</span>
   </h1>
   <div class="container">
     <div id="message-container"></div>
     <div class="bottom-container">
-      <textarea placeholder="Type a message" id="input-container" cols="30" rows="1"></textarea>
+      <textarea class="fish" placeholder="Type a message" id="input-container" cols="30" rows="1"></textarea>
+      <button class="silly" id="emoji"> 😎 </button>
       <button id="sendbtn"> > </button>
     </div>
   </div>
+    <?!= include('Emoji.html'); ?>
+    <script>
+
+        new EmojiPicker({
+            trigger: [
+                {
+                    selector: '.silly',
+                    insertInto: '.fish'
+                }
+            ],
+            closeButton: true,
+            //specialButtons: green
+        });
+
+    </script>
 
 
-  <?!= include('JavaScript'); ?>
+<?!= include('JavaScript.html'); ?>
 </body>
-
 </html>
