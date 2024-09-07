@@ -5,7 +5,7 @@ const worksheet = spreadsheet.getSheetByName("Sheet1");
 function doGet() {
    let template = HtmlService.createTemplateFromFile('Index.html');
    let html = template.evaluate()
-   .setTitle('CHAT')
+   .setTitle('1bxoxb1')
    .setSandboxMode(HtmlService.SandboxMode.IFRAME)
    .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
    return html;
