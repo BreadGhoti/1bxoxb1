@@ -3,10 +3,27 @@
   const userInputBox = document.querySelector("#input-container");
   const sendButton = document.querySelector("#sendbtn");
   const REFRESH_RATE = 2000; //check for new messages every 2 seconds
+  
+  var sideBar = localStorage.getItem('dishdfAAAAAA');
+  if(sideBar || sideBar === "") {
+
+}
+else {
+   var a = ["Undesirable", "Thankful", "Historical", "Cynical", "Hellish", "Swift", "Seemly", "Loutish", "Fragile", "Jumpy", "Obedient", "Latter", "Legal", "Ritzy", "Many", "Lacking", "Abnormal", "Certain", "Sulky", "Juicy", "Vengeful", "Quaint", "Idiotic", "Thirsty", "Observant", "Gorgeous", "Petite", "Faithful", "Second-Hand", "Attractive", "Cold", "Noxious", "Scary", "Hapless", "Well-Off", "Apathetic", "Numberless", "Shy", "Instinctive", "Functional", "Annoyed", "Educational", "Far", "Black-And-White", "Kaput", "Desperate", "Ablaze", "Jagged", "Pathetic", "Worried"];
+   var b = ["Disease", "Kite", "Snail", "Cherry", "Ornament", "Goose", "Flower", "Jellyfish", "Rat", "Banana", "Pencil", "Truck", "Circle", "Rabbit", "Cabbage", "Queen", "Bee", "Cactus", "Goldfish", "Celery", "Horse", "Bubble", "Baseball", "Owl", "Orange", "Cat", "Island", "Train", "Elbow", "Brain", "Crow", "Hat", "Cow"];
+
+    var rA = Math.floor(Math.random()*a.length);
+    var rB = Math.floor(Math.random()*b.length);
+    var name = a[rA] + b[rB];
+    localStorage.dishdfAAAAAA = name;
+
+}
+
 
   // Generate a random username : https://stackoverflow.com/a/38622545/17627866
-  const MY_USERNAME = Math.random().toString(36).slice(2, 7);
+  const MY_USERNAME = localStorage.dishdfAAAAAA;
   userInputBox.placeholder = `Enter message. Your username is ${MY_USERNAME}.`;
+  
 
   let currentRowIndex = -1; // n-th row in spreadsheet has index (n-1)
   let lastUser = ""; //name of last person who posted a message
@@ -130,6 +147,17 @@
   }
 
   sendButton.addEventListener("click", saveToSpreadsheet)
+  userInputBox.addEventListener("keypress", function(cool) {
+  if (cool.key === "Enter") {
+    if(cool.shiftKey) { 
+
+    }
+    else {
+      cool.preventDefault();
+      sendButton.click();
+  }
+}});
+
   updateMessages();
 
   //refresh messages every 2 seconds
