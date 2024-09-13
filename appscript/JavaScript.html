@@ -5,32 +5,55 @@
   const REFRESH_RATE = 2000; //check for new messages every 2 seconds
   
   var sideBar = localStorage.getItem('dishdfAAAAAA');
-  var bar = localStorage.getItem('namechanger');
+  var guacamole = localStorage.getItem('pneumonoultramicroscopicsilicovolcanoconiosis');
 
-  if(bar || bar === "") {
-
-}
-else {
-   alert("To request Username change, ask OWNER!");
-   let done = "if you see this frick you"
-   localStorage.namechanger = done;
-
-}
-  
   if(sideBar || sideBar === "") {
 
 }
 else {
-   var a = ["Undesirable", "Thankful", "Historical", "Cynical", "Hellish", "Swift", "Seemly", "Loutish", "Fragile", "Jumpy", "Obedient", "Latter", "Legal", "Ritzy", "Many", "Lacking", "Abnormal", "Certain", "Sulky", "Juicy", "Vengeful", "Quaint", "Idiotic", "Thirsty", "Observant", "Gorgeous", "Petite", "Faithful", "Second-Hand", "Attractive", "Cold", "Noxious", "Scary", "Hapless", "Well-Off", "Apathetic", "Numberless", "Shy", "Instinctive", "Functional", "Annoyed", "Educational", "Far", "Black-And-White", "Kaput", "Desperate", "Ablaze", "Jagged", "Pathetic", "Worried", "Silly", "Skibidi"];
-   var b = ["Disease", "Kite", "Snail", "Cherry", "Ornament", "Goose", "Flower", "Jellyfish", "Rat", "Banana", "Pencil", "Truck", "Circle", "Rabbit", "Cabbage", "Queen", "Bee", "Cactus", "Goldfish", "Celery", "Horse", "Bubble", "Baseball", "Owl", "Orange", "Cat", "Island", "Train", "Elbow", "Brain", "Crow", "Hat", "Cow", "Toilet", "Goober"];
+  changeName()
+
+}
+
+const textarea = document.getElementById("input-container");
+const progressBar = document.getElementById("progress-bar");
+const remChars = document.getElementById("remaining-chars");
+
+function charCounter(inputField) {
+  const maxLength = inputField.getAttribute("maxlength");
+  const currentLength = inputField.value.length;
+
+  const progressWidth = (currentLength / maxLength) * 100;
+  progressBar.style.width = `${progressWidth}%`;
+  remChars.style.display = "none";
+
+  if (progressWidth <= 60) {
+    progressBar.style.backgroundColor = "rgb(19, 160, 19)";
+  } else if (progressWidth > 60 && progressWidth < 85) {
+    progressBar.style.backgroundColor = "rgb(236, 157, 8)";
+  } else {
+    progressBar.style.backgroundColor = "rgb(241, 9, 9)";
+    remChars.innerHTML = `${maxLength - currentLength} characters left`;
+    remChars.style.display = "block";
+  }
+}
+textarea.oninput = () => charCounter(textarea);
+
+function changeName() {
+       var a = ["Undesirable", "Thankful", "Historical", "Cynical", "Hellish", "Swift", "Seemly", "Loutish", "Fragile", "Jumpy", "Obedient", "Latter", "Legal", "Ritzy", "Many", "Lacking", "Abnormal", "Certain", "Sulky", "Juicy", "Vengeful", "Quaint", "Idiotic", "Thirsty", "Observant", "Gorgeous", "Petite", "Faithful", "Second-Hand", "Attractive", "Cold", "Noxious", "Scary", "Hapless", "Well-Off", "Apathetic", "Numberless", "Shy", "Instinctive", "Functional", "Annoyed", "Educational", "Far", "Black-And-White", "Kaput", "Desperate", "Ablaze", "Jagged", "Pathetic", "Worried", "Silly", "Skibidi", "Sigma"];
+   var b = ["Disease", "Kite", "Snail", "Cherry", "Ornament", "Goose", "Flower", "Jellyfish", "Rat", "Banana", "Pencil", "Truck", "Circle", "Rabbit", "Cabbage", "Queen", "Bee", "Cactus", "Goldfish", "Celery", "Horse", "Bubble", "Baseball", "Owl", "Orange", "Cat", "Island", "Train", "Elbow", "Brain", "Crow", "Hat", "Cow", "Toilet", "Goober", "Sigma"];
 
     var rA = Math.floor(Math.random()*a.length);
     var rB = Math.floor(Math.random()*b.length);
     var name = a[rA] + b[rB];
     localStorage.dishdfAAAAAA = name;
-
+    if (confirm("Your Page Will Now Reload.")) {
+    window.open("https://script.google.com/macros/s/AKfycbwoFybqNlQKewpmbLCDNt--_btvbbjoLMKEfWyn6FJ32c8vpWR4Ypk0Ty2rEyn-03VSkQ/exec","_self")   
+      } else {
+      alert("THATS TOO BAD!");
+      window.open("https://script.google.com/macros/s/AKfycbwoFybqNlQKewpmbLCDNt--_btvbbjoLMKEfWyn6FJ32c8vpWR4Ypk0Ty2rEyn-03VSkQ/exec","_self")
+  }
 }
-
 
   // Generate a random username : https://stackoverflow.com/a/38622545/17627866
   const MY_USERNAME = localStorage.dishdfAAAAAA;
@@ -118,7 +141,7 @@ else {
         time = time.split(':').splice(0, 2).join(':');
         return time;
       }
-
+      
       //loop through new rows since last update
       const lastRowIndex = spreadsheetDataArray.length - 1;
       for (let i = currentRowIndex + 1; i <= lastRowIndex; i++) {
@@ -147,6 +170,12 @@ else {
       .getSpreadsheetData();
   }
 
+  
+  var guh = ["😀", "😄", "😆", "🤣", "🫠", "🥳", "🤔", "😏", "😜", "🤗", "🥴", "🤨", "🤯", "😡", "😎", "👿", "🫨", "🤑", "🤓", "💀"];
+  var pp = Math.floor(Math.random()*guh.length);
+  var goobs = guh[pp];
+  document.querySelector("#emoji").innerHTML = goobs;
+
   function saveToSpreadsheet() {
     //ignore empty messages
     if (userInputBox.value == "") return;
@@ -157,6 +186,29 @@ else {
     //reset userInputBox
     userInputBox.value = "";
   }
+  
+  function makeOwner() {
+    if(guacamole === "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.") {
+
+localStorage.dishdfAAAAAA = "OWNER";
+window.open("https://script.google.com/macros/s/AKfycbwoFybqNlQKewpmbLCDNt--_btvbbjoLMKEfWyn6FJ32c8vpWR4Ypk0Ty2rEyn-03VSkQ/exec","_self")
+}
+else {
+
+      alert("You aren't the FRICKIN' OWNER!!!!!");
+
+}
+  }
+
+  function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+  document.getElementById("myNav").style.width = "0%";
+}
 
   sendButton.addEventListener("click", saveToSpreadsheet)
   userInputBox.addEventListener("keypress", function(cool) {
