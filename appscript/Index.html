@@ -3,9 +3,23 @@
 
 <head>
   <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <?!= include('Stylesheet.html'); ?>
 </head>
 <body>
+
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="javascript:void(0)" style="cursor:pointer" onclick="changeName()">Change Name</a>
+    <a href="javascript:void(0)" style="cursor:pointer" onclick="makeOwner()">OWNER?</a>
+    <a href="https://forms.gle/8aLEWx3wkXGjtHas8" target="_blank" style="cursor:pointer">Feature Request/Bug Report</a>
+  </div>
+</div>
+
+<span class="fixed" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
   <h1>
     <span style="color:#FF0000">1</span>
     <span style="color:#66CC66">b</span>
@@ -18,12 +32,18 @@
   <div class="container">
     <div id="message-container"></div>
     <div class="bottom-container">
-      <textarea class="fish" placeholder="Type a message" id="input-container" cols="30" rows="1"></textarea>
+      <textarea class="fish" placeholder="Type a message" id="input-container" maxlength="500" cols="30" rows="1"></textarea>
       <button class="silly" id="emoji"> 😎 </button>
       <button id="sendbtn"> > </button>
     </div>
+      <div id="progress">
+    <div id="progress-bar"></div>
+    <p id="remaining-chars"></p>
+  </div>
+</div>
   </div>
     <?!= include('Emoji.html'); ?>
+
     <script>
 
         new EmojiPicker({
